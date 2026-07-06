@@ -61,10 +61,10 @@
     }
     .sample-table th { background-color: #e9ecef; color: #333; }
 
-    /* CẤU HÌNH TRANG IN A4 */
+    /* CẤU HÌNH TRANG IN A4 CHUẨN - GIÀN ĐỀU KHÔNG TRÀN LỀ */
     @page {
         size: A4;
-        margin: 10mm 8mm;
+        margin: 8mm 6mm; /* Căn lề trang giấy A4 */
     }
     * {
         box-sizing: border-box;
@@ -83,18 +83,20 @@
     .grid-container {
         width: 100%;
         display: block;
+        text-align: center; /* Giúp các hàng tem nằm cân đối ở giữa trang giấy */
     }
     
-    /* Cấu hình từng con tem 2x4 inch */
+    /* Cấu hình từng con tem 2x4 inch (Khớp hoàn hảo 10 con tem trên 1 trang A4) */
     .label-box {
         display: inline-block;
-        width: 92mm;
-        height: 48mm;
+        width: 94mm;        /* Tăng nhẹ chiều rộng để tận dụng khổ giấy */
+        height: 49mm;       /* Chiều cao tối ưu cho 5 hàng tem */
         border: 1px solid #000000;
-        margin: 3mm 2mm;
+        margin: 1.5mm 1.5mm; /* Khoảng cách giữa các con tem */
         padding: 2mm 3mm;
         vertical-align: top;
         overflow: hidden;
+        text-align: left;   /* Trả text bên trong về canh trái */
     }
 
     /* ĐỊNH DẠNG KHU VỰC TIÊU ĐỀ */
@@ -142,13 +144,13 @@
     }
     td {
         border: 1px solid #000000;
-        padding: 2px 4px;
+        padding: 2.5px 4px; /* Tăng nhẹ padding cho bảng cân đối */
         font-size: 7.5pt;
         vertical-align: middle;
         line-height: 1.1;
     }
     
-    /* Dàn chữ đều lề 2 bên tuyệt đối không có ký tự lạ */
+    /* Dàn chữ đều lề 2 bên không dấu hai chấm */
     .label-cell {
         font-weight: bold;
         width: 22%;
@@ -186,12 +188,12 @@
         overflow: hidden;
     }
 
-    /* ĐIỀU CHỈNH TỈ LỆ KHI IN */
+    /* Đã tắt điều chỉnh tỷ lệ khi in (Zoom gốc 100%) */
     @media print {
         .control-panel { display: none; }
         #print-zone {
-            zoom: 0.8; 
-            width: 125%; 
+            zoom: 1; 
+            width: 100%; 
         }
     }
 </style>
@@ -297,7 +299,6 @@ function initExcelUploadListener() {
                 var firstSheetName = workbook.SheetNames[0];
                 var firstSheet = workbook.Sheets[firstSheetName];
                 
-                // Đọc thô dữ liệu để tùy biến làm sạch cột
                 var jsonData = XLSX.utils.sheet_to_json(firstSheet, {defval: "", raw: false});
                 
                 if(!jsonData || jsonData.length === 0) {
@@ -305,12 +306,11 @@ function initExcelUploadListener() {
                     return;
                 }
                 
-                // Tiến hành làm sạch tiêu đề cột (Xóa dấu cách, chấp nhận cả giản thể lẫn phồn thể)
                 var cleanedData = jsonData.map(function(row) {
                     var newRow = {};
                     for (var key in row) {
                         if (row.hasOwnProperty(key)) {
-                            var cleanKey = key.toString().replace(/\s+/g, ""); // Xóa toàn bộ khoảng trắng thừa ở tiêu đề
+                            var cleanKey = key.toString().replace(/\s+/g, ""); 
                             newRow[cleanKey] = row[key] !== undefined ? row[key].toString().trim() : "";
                         }
                     }
@@ -340,7 +340,6 @@ function generateLabels(dataList) {
         for (var j = i; j < i + 10 && j < totalItems; j++) {
             var item = dataList[j];
             
-            // Hỗ trợ nhận diện thông minh cả chữ Phồn thể lẫn Giản thể từ Excel của bạn
             var chang_hieu = item['廠型'] || item['厂型'] || "";
             var giao_ky   = item['成品交期'] || item['成品交期'] || ""; 
             var chi_lenh  = item['指令表'] || item['指令表'] || "";
@@ -355,7 +354,7 @@ function generateLabels(dataList) {
             htmlContent += `
                 <div class="label-box">
                     <div class="header-container">
-                        <img class="logo-img" src="logo.jpeg" onerror="this.style.display='none'">
+                        <img class="logo-img" src="https://i.ibb.co/jvJ4mTps/IMG-0177.jpg" onerror="this.style.display='none'">
                         
                         <div class="header-text">
                             <div class="company-name">富裕鞋業有限公司</div>
@@ -403,17 +402,6 @@ function generateLabels(dataList) {
         printZone.innerHTML = `
         <div style="padding: 20px; color: red; font-weight: bold; font-family: Arial; border: 2px dashed red; background: #fff5f5; border-radius: 6px;">
             <p>⚠️ 錯誤：無法讀取匹配 Dữ liệu Excel!</p>
-            <p style="font-size: 13px; font-weight: normal; color: #555; margin-top: 8px;">
-                Vui lòng chắc chắn rằng dòng đầu tiên (Hàng 1) trong Excel của bạn có các cột mang tên chính xác: <br>
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">廠型</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">成品交期</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">指令表</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">摘要</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">顏色</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">數量</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">單位</code> | 
-                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">注</code>
-            </p>
         </div>`;
     } else {
         printZone.innerHTML = htmlContent;
