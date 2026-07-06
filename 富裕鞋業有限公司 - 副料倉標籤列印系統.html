@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>富裕鞋業有限公司 - 標籤自動列印系統</title>
+<style>
+    /* Phần cấu hình giao diện điều khiển */
+    .control-panel {
+        background: #f4f6f9;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        font-family: Arial, "Microsoft YaHei", sans-serif;
+    }
+    .control-panel h2 { margin-top: 0; color: #333; }
+    
+    .btn-print {
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .btn-print:hover { background: #218838; }
+
+    .btn-copy {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .btn-copy:hover { background: #0056b3; }
+    
+    input[type="file"] { 
+        padding: 8px; 
+        border: 1px dashed #999;
+        background: #fff;
+        border-radius: 4px;
+    }
+
+    /* Bảng hiển thị cấu trúc cột mẫu */
+    .sample-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        font-size: 13px;
+        background: #fff;
+    }
+    .sample-table th, .sample-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .sample-table th { background-color: #e9ecef; color: #333; }
+
+    /* CẤU HÌNH TRANG IN A4 */
+    @page {
+        size: A4;
+        margin: 10mm 8mm;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: "Arial", "Microsoft YaHei", sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+    }
+    
+    .page-break {
+        page-break-after: always;
+    }
+    .grid-container {
+        width: 100%;
+        display: block;
+    }
+    
+    /* Cấu hình từng con tem 2x4 inch */
+    .label-box {
+        display: inline-block;
+        width: 92mm;
+        height: 48mm;
+        border: 1px solid #000000;
+        margin: 3mm 2mm;
+        padding: 2mm 3mm;
+        vertical-align: top;
+        overflow: hidden;
+    }
+
+    /* ĐỊNH DẠNG KHU VỰC TIÊU ĐỀ */
+    .header-container {
+        display: block;
+        margin-bottom: 2px;
+        position: relative;
+        height: 8.5mm;
+        width: 100%;
+    }
+    
+    /* Gọi file ảnh logo cũ */
+    .logo-img {
+        position: absolute;
+        left: 1mm;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 8mm;
+        width: auto;
+    }
+    
+    .header-text {
+        text-align: right;
+        width: 100%;
+        padding-right: 1mm;
+    }
+    .company-name {
+        font-size: 12pt;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+    }
+    .dept-name {
+        font-size: 9.5pt;
+        font-weight: bold;
+        letter-spacing: 2px;
+        line-height: 1.1;
+        margin-top: 1px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    td {
+        border: 1px solid #000000;
+        padding: 2px 4px;
+        font-size: 7.5pt;
+        vertical-align: middle;
+        line-height: 1.1;
+    }
+    
+    /* Dàn chữ đều lề 2 bên tuyệt đối không có ký tự lạ */
+    .label-cell {
+        font-weight: bold;
+        width: 22%;
+        text-align: justify;
+        text-align-last: justify;
+    }
+    
+    .value-cell {
+        font-weight: normal;
+    }
+    .bold-value {
+        font-weight: bold;
+    }
+    .large-text {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+    .qty-text {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+    }
+    .center-text {
+        text-align: center;
+    }
+
+    .footer-note {
+        font-size: 5.2pt;
+        line-height: 1.1;
+        text-align: justify;
+        margin-top: 3px;
+        border-top: 1px dotted #000000;
+        padding-top: 1px;
+        height: 5.5mm;
+        overflow: hidden;
+    }
+
+    /* ĐIỀU CHỈNH TỈ LỆ KHI IN */
+    @media print {
+        .control-panel { display: none; }
+        #print-zone {
+            zoom: 0.8; 
+            width: 125%; 
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div class="control-panel">
+        <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+        <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
+            <strong>使用說明：</strong> 點擊「複製範本數據」按鈕，打開 Excel 貼上 (Ctrl+V) 填寫完畢，再點擊「選擇檔案」上傳。
+        </p>
+        
+        <div style="margin-bottom: 15px;">
+            <input type="file" id="excel_file" accept=".xlsx, .xls" />
+            <button class="btn-copy" onclick="copyTemplateData()">複製範本數據 (Copy)</button>
+            <button class="btn-print" onclick="window.print()">列印標籤 (Print)</button>
+        </div>
+
+        <table class="sample-table" id="matrix_table">
+            <thead>
+                <tr>
+                    <th>廠型</th>
+                    <th>成品交期</th>
+                    <th>指令表</th>
+                    <th>摘要</th>
+                    <th>顏色</th>
+                    <th>數量</th>
+                    <th>單位</th>
+                    <th>注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>S93207男-S101617-1022</td>
+                    <td>2026年2月10日</td>
+                    <td>PS37331</td>
+                    <td>SCN-A33</td>
+                    <td>SHINY BLACK黑0AN</td>
+                    <td>360</td>
+                    <td>PCS</td>
+                    <td>以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="print-zone">
+        <p style="padding: 20px; color: #999; font-style: italic; font-family: Arial;">無數據。請先上傳 Excel 檔案...</p>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    initExcelUploadListener();
+});
+
+function copyTemplateData() {
+    var row1 = ["廠型", "成品交期", "指令表", "摘要", "顏色", "數量", "單位", "注"].join("\t");
+    var row2 = ["S93207男-S101617-1022", "2026年2月10日", "PS37331", "SCN-A33", "SHINY BLACK黑0AN", "360", "PCS", "以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。"].join("\t");
+    var templateText = row1 + "\r\n" + row2;
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(templateText).then(function() {
+            alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");
+        }).catch(function() { fallbackCopy(templateText); });
+    } else { fallbackCopy(templateText); }
+}
+
+function fallbackCopy(text) {
+    var urlField = document.createElement('textarea');
+    urlField.value = text;
+    urlField.style.top = "0"; urlField.style.left = "0"; urlField.style.position = "fixed";
+    document.body.appendChild(urlField);
+    urlField.focus(); urlField.select();
+    try {
+        document.execCommand('copy');
+        alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");
+    } catch (err) {
+        alert("複製失敗");
+    }
+    document.body.removeChild(urlField);
+}
+
+function initExcelUploadListener() {
+    var fileInput = document.getElementById('excel_file');
+    if(!fileInput) return;
+
+    fileInput.addEventListener('change', function(e) {
+        var files = e.target.files;
+        if (!files || files.length === 0) return;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                var data = new Uint8Array(e.target.result);
+                if (typeof XLSX === 'undefined') {
+                    alert("錯誤：未載入 Excel 處理庫！");
+                    return;
+                }
+
+                var workbook = XLSX.read(data, {type: 'array', cellDates: false, raw: false});
+                var firstSheetName = workbook.SheetNames[0];
+                var firstSheet = workbook.Sheets[firstSheetName];
+                
+                // Đọc thô dữ liệu để tùy biến làm sạch cột
+                var jsonData = XLSX.utils.sheet_to_json(firstSheet, {defval: "", raw: false});
+                
+                if(!jsonData || jsonData.length === 0) {
+                    alert("無法讀取 Excel 數據！");
+                    return;
+                }
+                
+                // Tiến hành làm sạch tiêu đề cột (Xóa dấu cách, chấp nhận cả giản thể lẫn phồn thể)
+                var cleanedData = jsonData.map(function(row) {
+                    var newRow = {};
+                    for (var key in row) {
+                        if (row.hasOwnProperty(key)) {
+                            var cleanKey = key.toString().replace(/\s+/g, ""); // Xóa toàn bộ khoảng trắng thừa ở tiêu đề
+                            newRow[cleanKey] = row[key] !== undefined ? row[key].toString().trim() : "";
+                        }
+                    }
+                    return newRow;
+                });
+                generateLabels(cleanedData);
+            } catch (err) { 
+                alert("解析 Excel 出錯: " + err.message); 
+            }
+        };
+        reader.readAsArrayBuffer(files[0]);
+    });
+}
+
+function generateLabels(dataList) {
+    var printZone = document.getElementById('print-zone');
+    printZone.innerHTML = ""; 
+    var htmlContent = "";
+    var totalItems = dataList.length;
+    var validCount = 0;
+
+    for (var i = 0; i < totalItems; i += 10) {
+        var isLastPage = (i + 10 >= totalItems);
+        var pageClass = isLastPage ? "grid-container" : "grid-container page-break";
+        htmlContent += '<div class="' + pageClass + '">';
+        
+        for (var j = i; j < i + 10 && j < totalItems; j++) {
+            var item = dataList[j];
+            
+            // Hỗ trợ nhận diện thông minh cả chữ Phồn thể lẫn Giản thể từ Excel của bạn
+            var chang_hieu = item['廠型'] || item['厂型'] || "";
+            var giao_ky   = item['成品交期'] || item['成品交期'] || ""; 
+            var chi_lenh  = item['指令表'] || item['指令表'] || "";
+            var trich_yeu  = item['摘要'] || item['摘要'] || "";
+            var mau_sac   = item['顏色'] || item['颜色'] || "";
+            var so_luong  = item['數量'] || item['数量'] || "";
+            var don_vi    = item['單位'] || item['单位'] || "";
+            var ghi_chu   = item['注'] || item['註'] || ""; 
+            
+            if(chang_hieu || chi_lenh || so_luong) { validCount++; }
+            
+            htmlContent += `
+                <div class="label-box">
+                    <div class="header-container">
+                        <img class="logo-img" src="logo.jpeg" onerror="this.style.display='none'">
+                        
+                        <div class="header-text">
+                            <div class="company-name">富裕鞋業有限公司</div>
+                            <div class="dept-name">副料倉</div>
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <td class="label-cell">廠型</td>
+                            <td class="value-cell bold-value" colspan="3" style="font-size: 7pt;">${chang_hieu}</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">成品交期</td>
+                            <td class="value-cell" colspan="3">${giao_ky}</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">指令表</td>
+                            <td class="value-cell large-text" colspan="3">${chi_lenh}</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">摘要</td>
+                            <td class="value-cell" colspan="3">${trich_yeu}</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">顏色</td>
+                            <td class="value-cell" colspan="3" style="font-size: 7pt;">${mau_sac}</td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">數量</td>
+                            <td class="qty-text" style="width: 38%;">${so_luong}</td>
+                            <td class="label-cell" style="width: 18%; text-align: center; text-align-last: center;">單位</td>
+                            <td class="value-cell center-text large-text" style="width: 22%;">${don_vi}</td>
+                        </tr>
+                    </table>
+                    <div class="footer-note">
+                        <strong>注:</strong> ${ghi_chu}
+                    </div>
+                </div>
+            `;
+        }
+        htmlContent += '</div>';
+    }
+    
+    if(validCount === 0) {
+        printZone.innerHTML = `
+        <div style="padding: 20px; color: red; font-weight: bold; font-family: Arial; border: 2px dashed red; background: #fff5f5; border-radius: 6px;">
+            <p>⚠️ 錯誤：無法讀取匹配 Dữ liệu Excel!</p>
+            <p style="font-size: 13px; font-weight: normal; color: #555; margin-top: 8px;">
+                Vui lòng chắc chắn rằng dòng đầu tiên (Hàng 1) trong Excel của bạn có các cột mang tên chính xác: <br>
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">廠型</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">成品交期</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">指令表</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">摘要</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">顏色</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">數量</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">單位</code> | 
+                <code style="background: #eee; padding: 2px 5px; font-weight: bold; color: #000;">注</code>
+            </p>
+        </div>`;
+    } else {
+        printZone.innerHTML = htmlContent;
+    }
+}
+</script>
+</body>
+</html>
