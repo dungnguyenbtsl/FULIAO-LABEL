@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <title>富裕鞋業有限公司 - 標籤自動列印系統</title>
 <style>
-    /* CẤU HÌNH GIAO DIỆN ĐIỀU KHIỂN NỀN TRẮNG SANG TRỌNG - ĐỒNG BỘ LOGO NỀN TRẮNG */
+    /* GIAO DIỆN ĐIỀU KHIỂN NỀN TRẮNG SANG TRỌNG */
     .control-panel {
-        background: #ffffff; /* Nền trắng đồng bộ hoàn hảo với logo của bạn */
+        background: #ffffff; 
         padding: 30px;
         border: 1px solid #e2e8f0;
         border-radius: 16px;
         margin: 20px auto 40px auto;
         max-width: 1200px;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12); /* Đổ bóng mờ tạo chiều sâu */
+        box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12);
     }
     
     .panel-header {
@@ -33,15 +33,28 @@
         vertical-align: middle;
         text-align: left !important;
     }
+    /* Thêm cell chứa phần giới thiệu thông tin người quản lý */
+    .panel-profile-cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right !important;
+        font-size: 13px;
+        color: #475569;
+        line-height: 1.4;
+    }
+    .profile-name {
+        font-weight: 600;
+        color: #0f172a;
+    }
+
     .panel-logo {
         height: 42px;
         width: auto;
         display: block;
-        /* Không dùng border hay bóng đổ đậm để giữ logo nền trắng hòa nhập tự nhiên vào nền panel */
     }
     .control-panel h2 { 
         margin: 0; 
-        color: #0f172a; /* Màu chữ xám đen luxury */
+        color: #0f172a; 
         font-size: 24px;
         font-weight: 700;
         letter-spacing: -0.5px;
@@ -52,9 +65,9 @@
         margin-bottom: 25px; 
         font-size: 14px; 
         color: #475569;
-        background: #f8fafc; /* Nền xám tro rất nhẹ để làm nổi bật dòng thông báo */
+        background: #f8fafc; 
         padding: 12px 16px;
-        border-left: 4px solid #0f172a; /* Thanh nhấn màu tối sang trọng */
+        border-left: 4px solid #0f172a; 
         border-radius: 0 8px 8px 0;
         line-height: 1.5;
         text-align: left !important;
@@ -72,7 +85,6 @@
         margin-bottom: 10px;
     }
 
-    /* Khung tải file xám viền nét đứt tinh tế */
     .file-upload-input {
         padding: 10px 16px; 
         border: 2px dashed #cbd5e1;
@@ -88,7 +100,6 @@
         background: #f8fafc;
     }
 
-    /* Định dạng nút bấm phong cách tối giản cao cấp */
     .btn-base {
         padding: 11px 22px;
         border: none;
@@ -104,21 +115,18 @@
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    /* Nút Copy màu tối quyền lực */
     .btn-copy {
         background: #0f172a;
         color: #ffffff;
     }
     .btn-copy:hover { background: #1e293b; }
     
-    /* Nút Print màu xanh lá dịu mắt, chuyên nghiệp */
     .btn-print {
         background: #10b981;
         color: white;
     }
     .btn-print:hover { background: #059669; }
 
-    /* Bảng dữ liệu mẫu ngoài trang chủ phối màu đồng bộ */
     .sample-table {
         width: 100%;
         border-collapse: separate;
@@ -157,7 +165,7 @@
     }
     body {
         font-family: "Arial", "Microsoft YaHei", sans-serif;
-        background-color: #f8fafc; /* Màu nền trang web xám dịu để tôn bảng điều khiển màu trắng */
+        background-color: #f8fafc; 
         color: #000000;
     }
     
@@ -288,6 +296,10 @@
             </div>
             <div class="panel-title-cell">
                 <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+            </div>
+            <div class="panel-profile-cell">
+                <div>系統管理員 (Quản trị viên): <span class="profile-name">Nguyen Van Dung</span></div>
+                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">職位 (Vị trí): Warehouse Staff</div>
             </div>
         </div>
         
