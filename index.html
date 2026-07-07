@@ -57,7 +57,7 @@
     .sample-table th, .sample-table td {
         border: 1px solid #ddd;
         padding: 8px;
-        text-align: left;
+        text-align: left !important;
     }
     .sample-table th { background-color: #e9ecef; color: #333; }
 
@@ -108,7 +108,6 @@
         width: 100%;
     }
     
-    /* Đường link logo từ GitHub của bạn */
     .logo-img {
         position: absolute;
         left: 1mm;
@@ -137,6 +136,7 @@
         margin-top: 1px;
     }
 
+    /* ĐỊNH DẠNG BẢNG DỮ LIỆU - ÉP CĂN GIỮA TUYỆT ĐỐI */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -148,17 +148,18 @@
         font-size: 7.5pt;
         vertical-align: middle;
         line-height: 1.1;
-        text-align: center; /* Căn giữa chữ trong bảng dữ liệu */
+        text-align: center !important; /* Ép buộc căn giữa tất cả dữ liệu chữ và số */
     }
     
     .label-cell {
         font-weight: bold;
-        width: 22%;
-        text-align: center;
+        width: 24%; /* Điều chỉnh nhẹ độ rộng cột tiêu đề để cân đối */
+        text-align: center !important;
     }
     
     .value-cell {
         font-weight: normal;
+        text-align: center !important;
     }
     .bold-value {
         font-weight: bold;
@@ -170,10 +171,7 @@
     .qty-text {
         font-size: 12pt;
         font-weight: bold;
-        text-align: center;
-    }
-    .center-text {
-        text-align: center;
+        text-align: center !important;
     }
 
     .footer-note {
@@ -290,7 +288,7 @@ function initExcelUploadListener() {
             try {
                 var data = new Uint8Array(e.target.result);
                 if (typeof XLSX === 'undefined') {
-                    alert("錯誤：未載入 Excel 處理庫！");
+                    alert("錯誤：未載入 Excel 處理库！");
                     return;
                 }
 
@@ -363,31 +361,31 @@ function generateLabels(dataList) {
                     <table>
                         <tr>
                             <td class="label-cell">廠型</td>
-                            <td class="value-cell bold-value" style="font-size: 7pt;">${chang_hieu}</td>
+                            <td class="value-cell bold-value" style="font-size: 7pt; width: 76%;">${chang_hieu}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">成品交期</td>
-                            <td class="value-cell">${giao_ky}</td>
+                            <td class="value-cell" style="width: 76%;">${giao_ky}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">指令表</td>
-                            <td class="value-cell large-text">${chi_lenh}</td>
+                            <td class="value-cell large-text" style="width: 76%;">${chi_lenh}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">摘要</td>
-                            <td class="value-cell">${trich_yeu}</td>
+                            <td class="value-cell" style="width: 76%;">${trich_yeu}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">顏色</td>
-                            <td class="value-cell" style="font-size: 7pt;">${mau_sac}</td>
+                            <td class="value-cell" style="font-size: 7pt; width: 76%;">${mau_sac}</td>
                         </tr>
                     </table>
                     <table style="margin-top: -1px;">
                         <tr>
-                            <td class="label-cell" style="width: 22%;">數量</td>
-                            <td class="qty-text" style="width: 38%;">${so_luong}</td>
+                            <td class="label-cell" style="width: 24%;">數量</td>
+                            <td class="qty-text" style="width: 36%;">${so_luong}</td>
                             <td class="label-cell" style="width: 18%;">單位</td>
-                            <td class="value-cell center-text large-text" style="width: 22%;">${don_vi}</td>
+                            <td class="value-cell large-text" style="width: 22%;">${don_vi}</td>
                         </tr>
                     </table>
                     <div class="footer-note">
