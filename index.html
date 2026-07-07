@@ -13,7 +13,23 @@
         margin-bottom: 30px;
         font-family: Arial, "Microsoft YaHei", sans-serif;
     }
-    .control-panel h2 { margin-top: 0; color: #333; }
+    
+    /* Khối chứa logo và tiêu đề ngoài trang chủ */
+    .panel-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+    .panel-logo {
+        height: 32px; /* Kích thước logo ngoài trang chủ */
+        width: auto;
+    }
+    .control-panel h2 { 
+        margin: 0; 
+        color: #333; 
+        font-size: 22px;
+    }
     
     .btn-print {
         background: #28a745;
@@ -148,12 +164,12 @@
         font-size: 7.5pt;
         vertical-align: middle;
         line-height: 1.1;
-        text-align: center !important; /* Ép buộc căn giữa tất cả dữ liệu chữ và số */
+        text-align: center !important; 
     }
     
     .label-cell {
         font-weight: bold;
-        width: 24%; /* Điều chỉnh nhẹ độ rộng cột tiêu đề để cân đối */
+        width: 24%; 
         text-align: center !important;
     }
     
@@ -198,7 +214,11 @@
 <body>
 
     <div class="control-panel">
-        <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+        <div class="panel-header">
+            <img class="panel-logo" src="https://dungnguyenbtsl.github.io/FULIAO-LABEL/logo.jpeg" onerror="this.style.display='none'">
+            <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+        </div>
+        
         <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
             <strong>使用說明：</strong> 點擊「複製範本數據」按鈕，打開 Excel 貼上 (Ctrl+V) 填寫完畢，再點擊「選擇檔案」上傳。
         </p>
@@ -288,7 +308,7 @@ function initExcelUploadListener() {
             try {
                 var data = new Uint8Array(e.target.result);
                 if (typeof XLSX === 'undefined') {
-                    alert("錯誤：未載入 Excel 處理库！");
+                    alert("錯誤：未載入 Excel 處理庫！");
                     return;
                 }
 
