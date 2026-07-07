@@ -4,81 +4,91 @@
 <meta charset="utf-8">
 <title>富裕鞋業有限公司 - 標籤自動列印系統</title>
 <style>
-    /* CẤU HÌNH GIAO DIỆN ĐIỀU KHIỂN ĐỒNG BỘ MÀU ĐỎ LOGO */
+    /* CẤU HÌNH GIAO DIỆN ĐIỀU KHIỂN NỀN TRẮNG SANG TRỌNG - ĐỒNG BỘ LOGO NỀN TRẮNG */
     .control-panel {
-        background: #e60012; /* Màu đỏ thương hiệu đồng bộ với nền logo */
+        background: #ffffff; /* Nền trắng đồng bộ hoàn hảo với logo của bạn */
         padding: 30px;
-        border: 1px solid #cc0010;
+        border: 1px solid #e2e8f0;
         border-radius: 16px;
         margin: 20px auto 40px auto;
         max-width: 1200px;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        box-shadow: 0 10px 25px rgba(230, 0, 18, 0.15);
+        box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12); /* Đổ bóng mờ tạo chiều sâu */
     }
     
     .panel-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 25px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Đường phân cách màu trắng mờ */
+        display: table;
+        width: 100%;
+        border-bottom: 2px solid #f1f5f9; 
         padding-bottom: 18px;
+        margin-bottom: 25px;
+    }
+    .panel-logo-cell {
+        display: table-cell;
+        vertical-align: middle;
+        width: 55px;
+    }
+    .panel-title-cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left !important;
     }
     .panel-logo {
         height: 42px;
         width: auto;
-        border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        display: block;
+        /* Không dùng border hay bóng đổ đậm để giữ logo nền trắng hòa nhập tự nhiên vào nền panel */
     }
     .control-panel h2 { 
         margin: 0; 
-        color: #ffffff; /* Chuyển chữ tiêu đề sang màu trắng */
+        color: #0f172a; /* Màu chữ xám đen luxury */
         font-size: 24px;
         font-weight: 700;
         letter-spacing: -0.5px;
+        padding-left: 8px;
     }
     
     .instruction-text {
         margin-bottom: 25px; 
         font-size: 14px; 
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.15); /* Nền mờ sang trọng trên nền đỏ */
+        color: #475569;
+        background: #f8fafc; /* Nền xám tro rất nhẹ để làm nổi bật dòng thông báo */
         padding: 12px 16px;
-        border-left: 4px solid #ffffff; /* Khối nhấn màu trắng */
+        border-left: 4px solid #0f172a; /* Thanh nhấn màu tối sang trọng */
         border-radius: 0 8px 8px 0;
         line-height: 1.5;
+        text-align: left !important;
     }
 
-    /* Khu vực tương tác: Nút bấm và Upload */
     .action-zone {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
+        display: block;
+        text-align: left !important;
         margin-bottom: 30px;
     }
-
-    /* Ô chọn File cấu hình nổi bật trên nền đỏ */
-    .file-upload-wrapper {
-        position: relative;
+    .action-item {
         display: inline-block;
+        vertical-align: middle;
+        margin-right: 16px;
+        margin-bottom: 10px;
     }
+
+    /* Khung tải file xám viền nét đứt tinh tế */
     .file-upload-input {
         padding: 10px 16px; 
-        border: 2px dashed rgba(255, 255, 255, 0.6);
-        background: rgba(255, 255, 255, 0.1);
+        border: 2px dashed #cbd5e1;
+        background: #ffffff;
         border-radius: 10px;
         cursor: pointer;
         font-size: 14px;
-        color: #ffffff;
+        color: #475569;
         transition: all 0.25s ease;
     }
     .file-upload-input:hover {
-        border-color: #ffffff;
-        background: rgba(255, 255, 255, 0.25);
+        border-color: #0f172a;
+        background: #f8fafc;
     }
 
-    /* Các nút bấm thiết kế lại phối hợp với nền đỏ */
+    /* Định dạng nút bấm phong cách tối giản cao cấp */
     .btn-base {
         padding: 11px 22px;
         border: none;
@@ -86,55 +96,48 @@
         cursor: pointer;
         font-weight: 600;
         font-size: 14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
     }
     .btn-base:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-    }
-    .btn-base:active {
-        transform: translateY(0);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    /* Màu nút Copy chuyển sang màu trắng chữ đen tạo điểm nhấn */
+    /* Nút Copy màu tối quyền lực */
     .btn-copy {
-        background: #ffffff;
-        color: #e60012;
+        background: #0f172a;
+        color: #ffffff;
     }
-    .btn-copy:hover { background: #f1f5f9; }
+    .btn-copy:hover { background: #1e293b; }
     
-    /* Màu nút Print dùng màu vàng cam hổ phách cực sang */
+    /* Nút Print màu xanh lá dịu mắt, chuyên nghiệp */
     .btn-print {
-        background: #f59e0b;
+        background: #10b981;
         color: white;
     }
-    .btn-print:hover { background: #d97706; }
+    .btn-print:hover { background: #059669; }
 
-    /* Bảng dữ liệu mẫu thiết kế tiệp màu nền */
+    /* Bảng dữ liệu mẫu ngoài trang chủ phối màu đồng bộ */
     .sample-table {
         width: 100%;
         border-collapse: separate;
         border-spacing: 0;
         margin-top: 15px;
         font-size: 13px;
-        background: rgba(255, 255, 255, 0.95); /* Bảng màu sáng dịu để đọc dữ liệu mẫu rõ ràng */
+        background: #ffffff; 
         border-radius: 12px;
         overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
     }
     .sample-table th, .sample-table td {
         padding: 12px 14px;
-        text-align: left !important;
+        text-align: center !important; 
         border-bottom: 1px solid #e2e8f0;
     }
     .sample-table th { 
         background-color: #f8fafc; 
-        color: #1e293b; 
+        color: #334155; 
         font-weight: 600;
     }
     .sample-table tbody tr:last-child td {
@@ -142,7 +145,7 @@
     }
 
     /* ------------------------------------------------------------- */
-    /* CẤU HÌNH TRANG IN A4 CHUẨN - GIÀN ĐỀU KHÔNG TRÀN LỀ */
+    /* CẤU HÌNH PHÔI IN TEM CHUẨN A4 KHO - KHÔNG BỊ PHÁ LỆ */
     @page {
         size: A4;
         margin: 8mm 6mm; 
@@ -154,7 +157,7 @@
     }
     body {
         font-family: "Arial", "Microsoft YaHei", sans-serif;
-        background-color: #f8fafc; 
+        background-color: #f8fafc; /* Màu nền trang web xám dịu để tôn bảng điều khiển màu trắng */
         color: #000000;
     }
     
@@ -167,7 +170,6 @@
         text-align: center;
     }
     
-    /* Cấu hình từng con tem 2x4 inch */
     .label-box {
         display: inline-block;
         width: 94mm;        
@@ -178,10 +180,9 @@
         vertical-align: top;
         overflow: hidden;
         text-align: left;
-        background-color: #ffffff; /* Tem in luôn giữ nền trắng tinh */
+        background-color: #ffffff; 
     }
 
-    /* ĐỊNH DẠNG KHU VỰC TIÊU ĐỀ TRONG TEM */
     .header-container {
         display: block;
         margin-bottom: 2px;
@@ -218,7 +219,7 @@
         margin-top: 1px;
     }
 
-    /* ĐỊNH DẠNG BẢNG DỮ LIỆU - ÉP CĂN GIỮA TUYỆT ĐỐI */
+    /* ĐỊNH DẠNG BẢNG TRONG CON TEM - ÉP CĂN GIỮA TUYỆT ĐỐI */
     #print-zone table {
         width: 100%;
         border-collapse: collapse;
@@ -265,9 +266,9 @@
         padding-top: 1px;
         height: 5.5mm;
         overflow: hidden;
+        color: #000000;
     }
 
-    /* Ẩn bảng điều khiển khi thực hiện lệnh in */
     @media print {
         body { background-color: #ffffff; }
         .control-panel { display: none; }
@@ -282,8 +283,12 @@
 
     <div class="control-panel">
         <div class="panel-header">
-            <img class="panel-logo" src="https://dungnguyenbtsl.github.io/FULIAO-LABEL/logo.jpeg" onerror="this.style.display='none'">
-            <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+            <div class="panel-logo-cell">
+                <img class="panel-logo" src="https://dungnguyenbtsl.github.io/FULIAO-LABEL/logo.jpeg" onerror="this.style.display='none'">
+            </div>
+            <div class="panel-title-cell">
+                <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+            </div>
         </div>
         
         <div class="instruction-text">
@@ -291,15 +296,15 @@
         </div>
         
         <div class="action-zone">
-            <div class="file-upload-wrapper">
+            <div class="action-item">
                 <input type="file" id="excel_file" class="file-upload-input" accept=".xlsx, .xls" />
             </div>
-            <button class="btn-base btn-copy" onclick="copyTemplateData()">
-                📄 複製範本數據 (Copy)
-            </button>
-            <button class="btn-base btn-print" onclick="window.print()">
-                🖨️ 列印標籤 (Print)
-            </button>
+            <div class="action-item">
+                <button class="btn-base btn-copy" onclick="copyTemplateData()">📄 複製範本數據 (Copy)</button>
+            </div>
+            <div class="action-item">
+                <button class="btn-base btn-print" onclick="window.print()">🖨️ 列印標籤 (Print)</button>
+            </div>
         </div>
 
         <table class="sample-table" id="matrix_table">
@@ -451,34 +456,34 @@ function generateLabels(dataList) {
                             <div class="dept-name">副料倉</div>
                         </div>
                     </div>
-                    <table>
+                    <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                         <tr>
-                            <td class="label-cell">廠型</td>
-                            <td class="value-cell bold-value" style="font-size: 7pt; width: 76%;">${chang_hieu}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">廠型</td>
+                            <td class="value-cell bold-value" style="width: 76%; text-align: center !important; font-size: 7pt;">${chang_hieu}</td>
                         </tr>
                         <tr>
-                            <td class="label-cell">成品交期</td>
-                            <td class="value-cell" style="width: 76%;">${giao_ky}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">成品交期</td>
+                            <td class="value-cell" style="width: 76%; text-align: center !important;">${giao_ky}</td>
                         </tr>
                         <tr>
-                            <td class="label-cell">指令表</td>
-                            <td class="value-cell large-text" style="width: 76%;">${chi_lenh}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">指令表</td>
+                            <td class="value-cell large-text" style="width: 76%; text-align: center !important;">${chi_lenh}</td>
                         </tr>
                         <tr>
-                            <td class="label-cell">摘要</td>
-                            <td class="value-cell" style="width: 76%;">${trich_yeu}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">摘要</td>
+                            <td class="value-cell" style="width: 76%; text-align: center !important;">${trich_yeu}</td>
                         </tr>
                         <tr>
-                            <td class="label-cell">顏色</td>
-                            <td class="value-cell" style="font-size: 7pt; width: 76%;">${mau_sac}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">顏色</td>
+                            <td class="value-cell" style="width: 76%; text-align: center !important; font-size: 7pt;">${mau_sac}</td>
                         </tr>
                     </table>
-                    <table style="margin-top: -1px;">
+                    <table style="width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: -1px;">
                         <tr>
-                            <td class="label-cell" style="width: 24%;">數量</td>
-                            <td class="qty-text" style="width: 36%;">${so_luong}</td>
-                            <td class="label-cell" style="width: 18%;">單位</td>
-                            <td class="value-cell large-text" style="width: 22%;">${don_vi}</td>
+                            <td class="label-cell" style="width: 24%; text-align: center !important; font-weight: bold;">數量</td>
+                            <td class="qty-text" style="width: 36%; text-align: center !important; font-size: 12pt; font-weight: bold;">${so_luong}</td>
+                            <td class="label-cell" style="width: 18%; text-align: center !important; font-weight: bold;">單位</td>
+                            <td class="value-cell large-text" style="width: 22%; text-align: center !important;">${don_vi}</td>
                         </tr>
                     </table>
                     <div class="footer-note">
