@@ -33,19 +33,6 @@
         vertical-align: middle;
         text-align: left !important;
     }
-    /* Thêm cell chứa phần giới thiệu thông tin người quản lý */
-    .panel-profile-cell {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: right !important;
-        font-size: 13px;
-        color: #475569;
-        line-height: 1.4;
-    }
-    .profile-name {
-        font-weight: 600;
-        color: #0f172a;
-    }
 
     .panel-logo {
         height: 42px;
@@ -152,6 +139,19 @@
         border-bottom: none;
     }
 
+    /* ĐỊNH DẠNG PHẦN GIỚI THIỆU TÁC GIẢ Ở ĐÁY BẢNG ĐIỀU KHIỂN */
+    .system-footer {
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: 1px dashed #e2e8f0;
+        font-size: 12px;
+        color: #64748b;
+        text-align: right !important;
+    }
+    .system-footer strong {
+        color: #334155;
+    }
+
     /* ------------------------------------------------------------- */
     /* CẤU HÌNH PHÔI IN TEM CHUẨN A4 KHO - KHÔNG BỊ PHÁ LỆ */
     @page {
@@ -227,7 +227,7 @@
         margin-top: 1px;
     }
 
-    /* ĐỊNH DẠNG BẢNG TRONG CON TEM - ÉP CĂN GIỮA TUYỆT ĐỐI */
+    /* ĐỊNH DẠNG BẢNG TRONG CON TEM */
     #print-zone table {
         width: 100%;
         border-collapse: collapse;
@@ -297,10 +297,6 @@
             <div class="panel-title-cell">
                 <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
             </div>
-            <div class="panel-profile-cell">
-                <div>系統管理員 (Quản trị viên): <span class="profile-name">Nguyen Van Dung</span></div>
-                <div style="font-size: 11px; color: #64748b; margin-top: 2px;">職位 (Vị trí): Warehouse Staff</div>
-            </div>
         </div>
         
         <div class="instruction-text">
@@ -341,10 +337,15 @@
                     <td>SHINY BLACK黑0AN</td>
                     <td>360</td>
                     <td>PCS</td>
-                    <td>以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。</td>
+                    <td>以上货品请核对数量,如有数量 problem, 三天内通知本公司,逾期恕不负责。</td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- PHẦN GIỚI THIỆU ĐÃ ĐƯỢC ĐƯA XUỐNG DƯỚI RẤT TINH TẾ -->
+        <div class="system-footer">
+            © 2026 系統維護與管理 (Hệ thống quản lý bởi): <strong>Nguyen Van Dung</strong> | 副料倉 (Phòng Phụ liệu)
+        </div>
     </div>
 
     <div id="print-zone">
