@@ -64,7 +64,7 @@
     /* CẤU HÌNH TRANG IN A4 CHUẨN - GIÀN ĐỀU KHÔNG TRÀN LỀ */
     @page {
         size: A4;
-        margin: 8mm 6mm; /* Căn lề trang giấy A4 */
+        margin: 8mm 6mm; 
     }
     * {
         box-sizing: border-box;
@@ -83,20 +83,20 @@
     .grid-container {
         width: 100%;
         display: block;
-        text-align: center; /* Giúp các hàng tem nằm cân đối ở giữa trang giấy */
+        text-align: center;
     }
     
-    /* Cấu hình từng con tem 2x4 inch (Khớp hoàn hảo 10 con tem trên 1 trang A4) */
+    /* Cấu hình từng con tem 2x4 inch */
     .label-box {
         display: inline-block;
-        width: 94mm;        /* Tăng nhẹ chiều rộng để tận dụng khổ giấy */
-        height: 49mm;       /* Chiều cao tối ưu cho 5 hàng tem */
+        width: 94mm;        
+        height: 49mm;       
         border: 1px solid #000000;
-        margin: 1.5mm 1.5mm; /* Khoảng cách giữa các con tem */
+        margin: 1.5mm 1.5mm; 
         padding: 2mm 3mm;
         vertical-align: top;
         overflow: hidden;
-        text-align: left;   /* Trả text bên trong về canh trái */
+        text-align: left;
     }
 
     /* ĐỊNH DẠNG KHU VỰC TIÊU ĐỀ */
@@ -108,7 +108,7 @@
         width: 100%;
     }
     
-    /* Gọi file ảnh logo cũ */
+    /* Đường link logo từ GitHub của bạn */
     .logo-img {
         position: absolute;
         left: 1mm;
@@ -144,18 +144,17 @@
     }
     td {
         border: 1px solid #000000;
-        padding: 2.5px 4px; /* Tăng nhẹ padding cho bảng cân đối */
+        padding: 2.5px 4px; 
         font-size: 7.5pt;
         vertical-align: middle;
         line-height: 1.1;
+        text-align: center; /* Căn giữa chữ trong bảng dữ liệu */
     }
     
-    /* Dàn chữ đều lề 2 bên không dấu hai chấm */
     .label-cell {
         font-weight: bold;
         width: 22%;
-        text-align: justify;
-        text-align-last: justify;
+        text-align: center;
     }
     
     .value-cell {
@@ -364,28 +363,30 @@ function generateLabels(dataList) {
                     <table>
                         <tr>
                             <td class="label-cell">廠型</td>
-                            <td class="value-cell bold-value" colspan="3" style="font-size: 7pt;">${chang_hieu}</td>
+                            <td class="value-cell bold-value" style="font-size: 7pt;">${chang_hieu}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">成品交期</td>
-                            <td class="value-cell" colspan="3">${giao_ky}</td>
+                            <td class="value-cell">${giao_ky}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">指令表</td>
-                            <td class="value-cell large-text" colspan="3">${chi_lenh}</td>
+                            <td class="value-cell large-text">${chi_lenh}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">摘要</td>
-                            <td class="value-cell" colspan="3">${trich_yeu}</td>
+                            <td class="value-cell">${trich_yeu}</td>
                         </tr>
                         <tr>
                             <td class="label-cell">顏色</td>
-                            <td class="value-cell" colspan="3" style="font-size: 7pt;">${mau_sac}</td>
+                            <td class="value-cell" style="font-size: 7pt;">${mau_sac}</td>
                         </tr>
+                    </table>
+                    <table style="margin-top: -1px;">
                         <tr>
-                            <td class="label-cell">數量</td>
+                            <td class="label-cell" style="width: 22%;">數量</td>
                             <td class="qty-text" style="width: 38%;">${so_luong}</td>
-                            <td class="label-cell" style="width: 18%; text-align: center; text-align-last: center;">單位</td>
+                            <td class="label-cell" style="width: 18%;">單位</td>
                             <td class="value-cell center-text large-text" style="width: 22%;">${don_vi}</td>
                         </tr>
                     </table>
