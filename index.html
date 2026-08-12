@@ -3,293 +3,300 @@
 <head>
 <meta charset="utf-8">
 <title>富裕鞋業有限公司 - 標籤自動列印系統</title>
+<!-- Tích hợp Google Font: Noto Sans TC -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
     /* GIAO DIỆN ĐIỀU KHIỂN NỀN TRẮNG SANG TRỌNG */
     .control-panel {
-        background: #ffffff; 
-        padding: 30px;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        margin: 20px auto 40px auto;
-        max-width: 1200px;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12);
+        background: #ffffff;[span_0](start_span)[span_0](end_span)
+        padding: 30px;[span_1](start_span)[span_1](end_span)
+        border: 1px solid #e2e8f0;[span_2](start_span)[span_2](end_span)
+        border-radius: 16px;[span_3](start_span)[span_3](end_span)
+        margin: 20px auto 40px auto;[span_4](start_span)[span_4](end_span)
+        max-width: 1200px;[span_5](start_span)[span_5](end_span)
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;[span_6](start_span)[span_6](end_span)
+        box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12);[span_7](start_span)[span_7](end_span)
     }
     
     .panel-header {
-        display: table;
-        width: 100%;
-        border-bottom: 2px solid #f1f5f9; 
-        padding-bottom: 18px;
-        margin-bottom: 25px;
+        display: table;[span_8](start_span)[span_8](end_span)
+        width: 100%;[span_9](start_span)[span_9](end_span)
+        border-bottom: 2px solid #f1f5f9;[span_10](start_span)[span_10](end_span)
+        padding-bottom: 18px;[span_11](start_span)[span_11](end_span)
+        margin-bottom: 25px;[span_12](start_span)[span_12](end_span)
     }
     .panel-logo-cell {
-        display: table-cell;
-        vertical-align: middle;
-        width: 55px;
+        display: table-cell;[span_13](start_span)[span_13](end_span)
+        vertical-align: middle;[span_14](start_span)[span_14](end_span)
+        width: 55px;[span_15](start_span)[span_15](end_span)
     }
     .panel-title-cell {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: left !important;
+        display: table-cell;[span_16](start_span)[span_16](end_span)
+        vertical-align: middle;[span_17](start_span)[span_17](end_span)
+        text-align: left !important;[span_18](start_span)[span_18](end_span)
     }
 
     .panel-logo {
-        height: 42px;
-        width: auto;
-        display: block;
+        height: 42px;[span_19](start_span)[span_19](end_span)
+        width: auto;[span_20](start_span)[span_20](end_span)
+        display: block;[span_21](start_span)[span_21](end_span)
     }
     .control-panel h2 { 
-        margin: 0; 
-        color: #0f172a; 
-        font-size: 24px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        padding-left: 8px;
+        margin: 0;[span_22](start_span)[span_22](end_span)
+        color: #0f172a;[span_23](start_span)[span_23](end_span)
+        font-size: 24px;[span_24](start_span)[span_24](end_span)
+        font-weight: 700;[span_25](start_span)[span_25](end_span)
+        letter-spacing: -0.5px;[span_26](start_span)[span_26](end_span)
+        padding-left: 8px;[span_27](start_span)[span_27](end_span)
     }
     
     .instruction-text {
-        margin-bottom: 25px; 
-        font-size: 14px; 
-        color: #475569;
-        background: #f8fafc; 
-        padding: 12px 16px;
-        border-left: 4px solid #0f172a; 
-        border-radius: 0 8px 8px 0;
-        line-height: 1.5;
-        text-align: left !important;
+        margin-bottom: 25px;[span_28](start_span)[span_28](end_span)
+        font-size: 14px;[span_29](start_span)[span_29](end_span)
+        color: #475569;[span_30](start_span)[span_30](end_span)
+        background: #f8fafc;[span_31](start_span)[span_31](end_span)
+        padding: 12px 16px;[span_32](start_span)[span_32](end_span)
+        border-left: 4px solid #0f172a;[span_33](start_span)[span_33](end_span)
+        border-radius: 0 8px 8px 0;[span_34](start_span)[span_34](end_span)
+        line-height: 1.5;[span_35](start_span)[span_35](end_span)
+        text-align: left !important;[span_36](start_span)[span_36](end_span)
     }
 
     .action-zone {
-        display: block;
-        text-align: left !important;
-        margin-bottom: 30px;
+        display: block;[span_37](start_span)[span_37](end_span)
+        text-align: left !important;[span_38](start_span)[span_38](end_span)
+        margin-bottom: 30px;[span_39](start_span)[span_39](end_span)
     }
     .action-item {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 16px;
-        margin-bottom: 10px;
+        display: inline-block;[span_40](start_span)[span_40](end_span)
+        vertical-align: middle;[span_41](start_span)[span_41](end_span)
+        margin-right: 16px;[span_42](start_span)[span_42](end_span)
+        margin-bottom: 10px;[span_43](start_span)[span_43](end_span)
     }
 
     .file-upload-input {
-        padding: 10px 16px; 
-        border: 2px dashed #cbd5e1;
-        background: #ffffff;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 14px;
-        color: #475569;
-        transition: all 0.25s ease;
+        padding: 10px 16px;[span_44](start_span)[span_44](end_span)
+        border: 2px dashed #cbd5e1;[span_45](start_span)[span_45](end_span)
+        background: #ffffff;[span_46](start_span)[span_46](end_span)
+        border-radius: 10px;[span_47](start_span)[span_47](end_span)
+        cursor: pointer;[span_48](start_span)[span_48](end_span)
+        font-size: 14px;[span_49](start_span)[span_49](end_span)
+        color: #475569;[span_50](start_span)[span_50](end_span)
+        transition: all 0.25s ease;[span_51](start_span)[span_51](end_span)
     }
     .file-upload-input:hover {
-        border-color: #0f172a;
-        background: #f8fafc;
+        border-color: #0f172a;[span_52](start_span)[span_52](end_span)
+        background: #f8fafc;[span_53](start_span)[span_53](end_span)
     }
 
     .btn-base {
-        padding: 11px 22px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 14px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        transition: all 0.2s ease;
+        padding: 11px 22px;[span_54](start_span)[span_54](end_span)
+        border: none;[span_55](start_span)[span_55](end_span)
+        border-radius: 10px;[span_56](start_span)[span_56](end_span)
+        cursor: pointer;[span_57](start_span)[span_57](end_span)
+        font-weight: 600;[span_58](start_span)[span_58](end_span)
+        font-size: 14px;[span_59](start_span)[span_59](end_span)
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);[span_60](start_span)[span_60](end_span)
+        transition: all 0.2s ease;[span_61](start_span)[span_61](end_span)
     }
     .btn-base:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);[span_62](start_span)[span_62](end_span)
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);[span_63](start_span)[span_63](end_span)
     }
 
     .btn-copy {
-        background: #0f172a;
-        color: #ffffff;
+        background: #0f172a;[span_64](start_span)[span_64](end_span)
+        color: #ffffff;[span_65](start_span)[span_65](end_span)
     }
-    .btn-copy:hover { background: #1e293b; }
+    .btn-copy:hover { background: #1e293b; }[span_66](start_span)[span_66](end_span)
     
     .btn-print {
-        background: #10b981;
-        color: white;
+        background: #10b981;[span_67](start_span)[span_67](end_span)
+        color: white;[span_68](start_span)[span_68](end_span)
     }
-    .btn-print:hover { background: #059669; }
+    .btn-print:hover { background: #059669; }[span_69](start_span)[span_69](end_span)
 
     /* BẢNG NỘI DUNG MẪU ĐÃ ĐƯỢC CĂN GIỮA TOÀN BỘ */
     .sample-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        margin-top: 20px;
-        font-size: 13.5px;
-        background: #ffffff; 
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        width: 100%;[span_70](start_span)[span_70](end_span)
+        border-collapse: separate;[span_71](start_span)[span_71](end_span)
+        border-spacing: 0;[span_72](start_span)[span_72](end_span)
+        margin-top: 20px;[span_73](start_span)[span_73](end_span)
+        font-size: 13.5px;[span_74](start_span)[span_74](end_span)
+        background: #ffffff;[span_75](start_span)[span_75](end_span)
+        border-radius: 12px;[span_76](start_span)[span_76](end_span)
+        overflow: hidden;[span_77](start_span)[span_77](end_span)
+        border: 1px solid #e2e8f0;[span_78](start_span)[span_78](end_span)
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);[span_79](start_span)[span_79](end_span)
     }
     .sample-table th { 
-        background-color: #f8fafc; 
-        color: #1e293b; 
-        font-weight: 600;
-        padding: 14px 16px;
-        border-bottom: 2px solid #e2e8f0;
-        text-align: center !important;
+        background-color: #f8fafc;[span_80](start_span)[span_80](end_span)
+        color: #1e293b;[span_81](start_span)[span_81](end_span)
+        font-weight: 600;[span_82](start_span)[span_82](end_span)
+        padding: 14px 16px;[span_83](start_span)[span_83](end_span)
+        border-bottom: 2px solid #e2e8f0;[span_84](start_span)[span_84](end_span)
+        text-align: center !important;[span_85](start_span)[span_85](end_span)
     }
     .sample-table td {
-        padding: 14px 16px;
-        color: #475569;
-        border-bottom: 1px solid #f1f5f9;
-        text-align: center !important; 
-        line-height: 1.5;
+        padding: 14px 16px;[span_86](start_span)[span_86](end_span)
+        color: #475569;[span_87](start_span)[span_87](end_span)
+        border-bottom: 1px solid #f1f5f9;[span_88](start_span)[span_88](end_span)
+        text-align: center !important;[span_89](start_span)[span_89](end_span)
+        line-height: 1.5;[span_90](start_span)[span_90](end_span)
     }
     .sample-table tbody tr:hover td {
-        background-color: #fcfdfe; 
+        background-color: #fcfdfe;[span_91](start_span)[span_91](end_span)
     }
     .sample-table tbody tr:last-child td {
-        border-bottom: none;
+        border-bottom: none;[span_92](start_span)[span_92](end_span)
     }
 
     /* ĐỊNH DẠNG ĐƯỜNG BOTTOM FOOTER MỚI */
     .system-footer {
-        margin-top: 25px;
-        padding-top: 15px;
-        border-top: 1px dashed #e2e8f0;
-        font-size: 12px;
-        color: #64748b;
-        text-align: right !important;
+        margin-top: 25px;[span_93](start_span)[span_93](end_span)
+        padding-top: 15px;[span_94](start_span)[span_94](end_span)
+        border-top: 1px dashed #e2e8f0;[span_95](start_span)[span_95](end_span)
+        font-size: 12px;[span_96](start_span)[span_96](end_span)
+        color: #64748b;[span_97](start_span)[span_97](end_span)
+        text-align: right !important;[span_98](start_span)[span_98](end_span)
     }
 
     /* ------------------------------------------------------------- */
     /* CẤU HÌNH PHÔI IN TEM CHUẨN A4 KHO - KHÔNG BỊ PHÁ LỆ */
     @page {
-        size: A4;
-        margin: 8mm 6mm; 
+        size: A4;[span_99](start_span)[span_99](end_span)
+        margin: 8mm 6mm;[span_100](start_span)[span_100](end_span)
     }
     * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        box-sizing: border-box;[span_101](start_span)[span_101](end_span)
+        margin: 0;[span_102](start_span)[span_102](end_span)
+        padding: 0;[span_103](start_span)[span_103](end_span)
     }
     body {
-        font-family: "Arial", "Microsoft YaHei", sans-serif;
-        background-color: #f8fafc; 
-        color: #000000;
+        font-family: "Arial", "Microsoft YaHei", sans-serif;[span_104](start_span)[span_104](end_span)
+        background-color: #f8fafc;[span_105](start_span)[span_105](end_span)
+        color: #000000;[span_106](start_span)[span_106](end_span)
     }
     
     .page-break {
-        page-break-after: always;
+        page-break-after: always;[span_107](start_span)[span_107](end_span)
     }
     .grid-container {
-        width: 100%;
-        display: block;
-        text-align: center;
+        width: 100%;[span_108](start_span)[span_108](end_span)
+        display: block;[span_109](start_span)[span_109](end_span)
+        text-align: center;[span_110](start_span)[span_110](end_span)
     }
     
     .label-box {
-        display: inline-block;
-        width: 94mm;        
-        height: 49mm;       
-        border: 1px solid #000000;
-        margin: 1.5mm 1.5mm; 
-        padding: 2mm 3mm;
-        vertical-align: top;
-        overflow: hidden;
-        text-align: left;
-        background-color: #ffffff; 
+        display: inline-block;[span_111](start_span)[span_111](end_span)
+        width: 94mm;[span_112](start_span)[span_112](end_span)
+        height: 49mm;[span_113](start_span)[span_113](end_span)
+        border: 1px solid #000000;[span_114](start_span)[span_114](end_span)
+        margin: 1.5mm 1.5mm;[span_115](start_span)[span_115](end_span)
+        padding: 2mm 3mm;[span_116](start_span)[span_116](end_span)
+        vertical-align: top;[span_117](start_span)[span_117](end_span)
+        overflow: hidden;[span_118](start_span)[span_118](end_span)
+        text-align: left;[span_119](start_span)[span_119](end_span)
+        background-color: #ffffff;[span_120](start_span)[span_120](end_span)
+        /* SỬ DỤNG FONT NOTO SÁNS TC BÊN TRONG CON TEM */
+        font-family: 'Noto Sans TC', sans-serif;
     }
 
     .header-container {
-        display: block;
-        margin-bottom: 2px;
-        position: relative;
-        height: 8.5mm;
-        width: 100%;
+        display: block;[span_121](start_span)[span_121](end_span)
+        margin-bottom: 2px;[span_122](start_span)[span_122](end_span)
+        position: relative;[span_123](start_span)[span_123](end_span)
+        height: 8.5mm;[span_124](start_span)[span_124](end_span)
+        width: 100%;[span_125](start_span)[span_125](end_span)
     }
     
     .logo-img {
-        position: absolute;
-        left: 1mm;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 8mm;
-        width: auto;
+        position: absolute;[span_126](start_span)[span_126](end_span)
+        left: 1mm;[span_127](start_span)[span_127](end_span)
+        top: 50%;[span_128](start_span)[span_128](end_span)
+        transform: translateY(-50%);[span_129](start_span)[span_129](end_span)
+        height: 8mm;[span_130](start_span)[span_130](end_span)
+        width: auto;[span_131](start_span)[span_131](end_span)
     }
     
     .header-text {
-        text-align: right;
-        width: 100%;
-        padding-right: 1mm;
+        text-align: right;[span_132](start_span)[span_132](end_span)
+        width: 100%;[span_133](start_span)[span_133](end_span)
+        padding-right: 1mm;[span_134](start_span)[span_134](end_span)
     }
     .company-name {
-        font-size: 12pt;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        line-height: 1.1;
+        font-size: 12pt;[span_135](start_span)[span_135](end_span)
+        font-weight: bold;[span_136](start_span)[span_136](end_span)
+        letter-spacing: 0.5px;[span_137](start_span)[span_137](end_span)
+        line-height: 1.1;[span_138](start_span)[span_138](end_span)
     }
     .dept-name {
-        font-size: 9.5pt;
-        font-weight: bold;
-        letter-spacing: 2px;
-        line-height: 1.1;
-        margin-top: 1px;
+        font-size: 9.5pt;[span_139](start_span)[span_139](end_span)
+        font-weight: bold;[span_140](start_span)[span_140](end_span)
+        letter-spacing: 2px;[span_141](start_span)[span_141](end_span)
+        line-height: 1.1;[span_142](start_span)[span_142](end_span)
+        margin-top: 1px;[span_143](start_span)[span_143](end_span)
     }
 
     /* ĐỊNH DẠNG BẢNG TRONG CON TEM */
     #print-zone table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
+        width: 100%;[span_144](start_span)[span_144](end_span)
+        border-collapse: collapse;[span_145](start_span)[span_145](end_span)
+        table-layout: fixed;[span_146](start_span)[span_146](end_span)
     }
     #print-zone td {
-        border: 1px solid #000000;
-        padding: 2.5px 4px; 
-        font-size: 7.5pt;
-        vertical-align: middle;
-        line-height: 1.1;
-        text-align: center !important; 
+        border: 1px solid #000000;[span_147](start_span)[span_147](end_span)
+        padding: 2.5px 4px;[span_148](start_span)[span_148](end_span)
+        font-size: 7.5pt;[span_149](start_span)[span_149](end_span)
+        vertical-align: middle;[span_150](start_span)[span_150](end_span)
+        line-height: 1.1;[span_151](start_span)[span_151](end_span)
+        text-align: center !important;[span_152](start_span)[span_152](end_span)
+        font-family: 'Noto Sans TC', sans-serif;
     }
     
     .label-cell {
-        font-weight: bold;
-        width: 24%; 
-        text-align: center !important;
+        font-weight: bold;[span_153](start_span)[span_153](end_span)
+        width: 24%;[span_154](start_span)[span_154](end_span)
+        text-align: center !important;[span_155](start_span)[span_155](end_span)
     }
     
     .value-cell {
-        font-weight: normal;
-        text-align: center !important;
+        font-weight: normal;[span_156](start_span)[span_156](end_span)
+        text-align: center !important;[span_157](start_span)[span_157](end_span)
     }
     .bold-value {
-        font-weight: bold;
+        font-weight: bold;[span_158](start_span)[span_158](end_span)
     }
     .large-text {
-        font-size: 10pt;
-        font-weight: bold;
+        font-size: 10pt;[span_159](start_span)[span_159](end_span)
+        font-weight: bold;[span_160](start_span)[span_160](end_span)
     }
     .qty-text {
-        font-size: 12pt;
-        font-weight: bold;
-        text-align: center !important;
+        font-size: 12pt;[span_161](start_span)[span_161](end_span)
+        font-weight: bold;[span_162](start_span)[span_162](end_span)
+        text-align: center !important;[span_163](start_span)[span_163](end_span)
     }
 
     .footer-note {
-        font-size: 5.2pt;
-        line-height: 1.1;
-        text-align: justify;
-        margin-top: 3px;
-        border-top: 1px dotted #000000;
-        padding-top: 1px;
-        height: 5.5mm;
-        overflow: hidden;
-        color: #000000;
+        font-size: 5.2pt;[span_164](start_span)[span_164](end_span)
+        line-height: 1.1;[span_165](start_span)[span_165](end_span)
+        text-align: justify;[span_166](start_span)[span_166](end_span)
+        margin-top: 3px;[span_167](start_span)[span_167](end_span)
+        border-top: 1px dotted #000000;[span_168](start_span)[span_168](end_span)
+        padding-top: 1px;[span_169](start_span)[span_169](end_span)
+        height: 5.5mm;[span_170](start_span)[span_170](end_span)
+        overflow: hidden;[span_171](start_span)[span_171](end_span)
+        color: #000000;[span_172](start_span)[span_172](end_span)
     }
 
     @media print {
-        body { background-color: #ffffff; }
-        .control-panel { display: none; }
+        body { background-color: #ffffff; }[span_173](start_span)[span_173](end_span)
+        .control-panel { display: none; }[span_174](start_span)[span_174](end_span)
         #print-zone {
-            zoom: 1; 
-            width: 100%; 
+            zoom: 1;[span_175](start_span)[span_175](end_span)
+            width: 100%;[span_176](start_span)[span_176](end_span)
         }
     }
 </style>
@@ -299,171 +306,171 @@
     <div class="control-panel">
         <div class="panel-header">
             <div class="panel-logo-cell">
-                <img class="panel-logo" src="https://dungnguyenbtsl.github.io/FULIAO-LABEL/logo.jpeg" onerror="this.style.display='none'">
+                <img class="panel-logo" src="https://dungnguyenbtsl.github.io/FULIAO-LABEL/logo.jpeg" onerror="this.style.display='none'">[span_177](start_span)[span_177](end_span)
             </div>
             <div class="panel-title-cell">
-                <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>
+                <h2>富裕鞋業有限公司 - 副料倉標籤列印系統</h2>[span_178](start_span)[span_178](end_span)
             </div>
         </div>
         
         <div class="instruction-text">
-            <strong>💡 使用說明：</strong> 點擊「複製範本數據」按鈕，打開 Excel 貼上 (Ctrl+V) 填寫完畢，再點擊「選擇檔案」上傳。
+            <strong>💡 使用說明：</strong> 點擊「複製範本數據」按鈕，打開 Excel 貼上 (Ctrl+V) 填寫完畢，再點擊「選擇檔案」上傳。[span_179](start_span)[span_179](end_span)
         </div>
         
         <div class="action-zone">
             <div class="action-item">
-                <input type="file" id="excel_file" class="file-upload-input" accept=".xlsx, .xls" />
+                <input type="file" id="excel_file" class="file-upload-input" accept=".xlsx, .xls" />[span_180](start_span)[span_180](end_span)
             </div>
             <div class="action-item">
-                <button class="btn-base btn-copy" onclick="copyTemplateData()">📄 複製範本數據</button>
+                <button class="btn-base btn-copy" onclick="copyTemplateData()">📄 複製範本數據</button>[span_181](start_span)[span_181](end_span)
             </div>
             <div class="action-item">
-                <button class="btn-base btn-print" onclick="window.print()">🖨️ 列印標籤</button>
+                <button class="btn-base btn-print" onclick="window.print()">🖨️ 列印標籤</button>[span_182](start_span)[span_182](end_span)
             </div>
         </div>
 
         <table class="sample-table" id="matrix_table">
             <thead>
                 <tr>
-                    <th style="width: 22%;">廠型</th>
-                    <th style="width: 13%;">成品交期</th>
-                    <th style="width: 10%;">指令表</th>
-                    <th style="width: 10%;">摘要</th>
-                    <th style="width: 15%;">顏色</th>
-                    <th style="width: 8%;">數量</th>
-                    <th style="width: 7%;">單位</th>
-                    <th style="width: 15%;">注</th>
+                    <th style="width: 22%;">廠型</th>[span_183](start_span)[span_183](end_span)
+                    <th style="width: 13%;">成品交期</th>[span_184](start_span)[span_184](end_span)
+                    <th style="width: 10%;">指令表</th>[span_185](start_span)[span_185](end_span)
+                    <th style="width: 10%;">摘要</th>[span_186](start_span)[span_186](end_span)
+                    <th style="width: 15%;">顏色</th>[span_187](start_span)[span_187](end_span)
+                    <th style="width: 8%;">數量</th>[span_188](start_span)[span_188](end_span)
+                    <th style="width: 7%;">單位</th>[span_189](start_span)[span_189](end_span)
+                    <th style="width: 15%;">注</th>[span_190](start_span)[span_190](end_span)
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>S93207男-S101617-1022</td>
-                    <td>2026年2月10日</td>
-                    <td>PS37331</td>
-                    <td>SCN-A33</td>
-                    <td>SHINY BLACK黑0AN</td>
-                    <td style="font-weight: bold; color: #10b981;">360</td>
-                    <td>PCS</td>
-                    <td style="font-size: 12px; color: #64748b;">以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。</td>
+                    <td>S93207男-S101617-1022</td>[span_191](start_span)[span_191](end_span)
+                    <td>2026年2月10日</td>[span_192](start_span)[span_192](end_span)
+                    <td>PS37331</td>[span_193](start_span)[span_193](end_span)
+                    <td>SCN-A33</td>[span_194](start_span)[span_194](end_span)
+                    <td>SHINY BLACK黑0AN</td>[span_195](start_span)[span_195](end_span)
+                    <td style="font-weight: bold; color: #10b981;">360</td>[span_196](start_span)[span_196](end_span)
+                    <td>PCS</td>[span_197](start_span)[span_197](end_span)
+                    <td style="font-size: 12px; color: #64748b;">以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。</td>[span_198](start_span)[span_198](end_span)
                 </tr>
             </tbody>
         </table>
 
         <div class="system-footer">
-            © 2026 系統管理員: 阮文勇 | 副料倉庫
+            © 2026 系統管理員: 阮文勇 | 副料倉庫[span_199](start_span)[span_199](end_span)
         </div>
     </div>
 
     <div id="print-zone">
-        <p style="padding: 40px; color: #94a3b8; font-style: italic; font-family: Arial; text-align: center; font-size: 15px;">無數據。請先上傳 Excel 檔案...</p>
+        <p style="padding: 40px; color: #94a3b8; font-style: italic; font-family: Arial; text-align: center; font-size: 15px;">無數據。請先上傳 Excel 檔案...</p>[span_200](start_span)[span_200](end_span)
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>[span_201](start_span)[span_201](end_span)
 
 <script>
 window.addEventListener('DOMContentLoaded', function() {
-    initExcelUploadListener();
+    initExcelUploadListener();[span_202](start_span)[span_202](end_span)
 });
 
 function copyTemplateData() {
-    var row1 = ["廠型", "成品交期", "指令表", "摘要", "顏色", "數量", "單位", "注"].join("\t");
-    var row2 = ["S93207男-S101617-1022", "2026年2月10日", "PS37331", "SCN-A33", "SHINY BLACK黑0AN", "360", "PCS", "以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。"].join("\t");
-    var templateText = row1 + "\r\n" + row2;
+    var row1 = ["廠型", "成品交期", "指令表", "摘要", "顏色", "數量", "單位", "注"].join("\t");[span_203](start_span)[span_203](end_span)
+    var row2 = ["S93207男-S101617-1022", "2026年2月10日", "PS37331", "SCN-A33", "SHINY BLACK黑0AN", "360", "PCS", "以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。"].join("\t");[span_204](start_span)[span_204](end_span)
+    var templateText = row1 + "\r\n" + row2;[span_205](start_span)[span_205](end_span)
     
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(templateText).then(function() {
-            alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");
-        }).catch(function() { fallbackCopy(templateText); });
-    } else { fallbackCopy(templateText); }
+            alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");[span_206](start_span)[span_206](end_span)
+        }).catch(function() { fallbackCopy(templateText); });[span_207](start_span)[span_207](end_span)
+    } else { fallbackCopy(templateText); }[span_208](start_span)[span_208](end_span)
 }
 
 function fallbackCopy(text) {
-    var urlField = document.createElement('textarea');
-    urlField.value = text;
-    urlField.style.top = "0"; urlField.style.left = "0"; urlField.style.position = "fixed";
-    document.body.appendChild(urlField);
-    urlField.focus(); urlField.select();
+    var urlField = document.createElement('textarea');[span_209](start_span)[span_209](end_span)
+    urlField.value = text;[span_210](start_span)[span_210](end_span)
+    urlField.style.top = "0"; urlField.style.left = "0"; urlField.style.position = "fixed";[span_211](start_span)[span_211](end_span)
+    document.body.appendChild(urlField);[span_212](start_span)[span_212](end_span)
+    urlField.focus(); urlField.select();[span_213](start_span)[span_213](end_span)
     try {
-        document.execCommand('copy');
-        alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");
+        document.execCommand('copy');[span_214](start_span)[span_214](end_span)
+        alert("已成功複製範本數據！請打開 Excel 活頁簿並按下 Ctrl+V 貼上。");[span_215](start_span)[span_215](end_span)
     } catch (err) {
-        alert("複製失敗");
+        alert("複製失敗");[span_216](start_span)[span_216](end_span)
     }
-    document.body.removeChild(urlField);
+    document.body.removeChild(urlField);[span_217](start_span)[span_217](end_span)
 }
 
 function initExcelUploadListener() {
-    var fileInput = document.getElementById('excel_file');
-    if(!fileInput) return;
+    var fileInput = document.getElementById('excel_file');[span_218](start_span)[span_218](end_span)
+    if(!fileInput) return;[span_219](start_span)[span_219](end_span)
 
     fileInput.addEventListener('change', function(e) {
-        var files = e.target.files;
-        if (!files || files.length === 0) return;
+        var files = e.target.files;[span_220](start_span)[span_220](end_span)
+        if (!files || files.length === 0) return;[span_221](start_span)[span_221](end_span)
 
-        var reader = new FileReader();
+        var reader = new FileReader();[span_222](start_span)[span_222](end_span)
         reader.onload = function(e) {
             try {
-                var data = new Uint8Array(e.target.result);
+                var data = new Uint8Array(e.target.result);[span_223](start_span)[span_223](end_span)
                 if (typeof XLSX === 'undefined') {
-                    alert("錯誤：未載入 Excel 處理庫！");
+                    alert("錯誤：未載入 Excel 處理庫！");[span_224](start_span)[span_224](end_span)
                     return;
                 }
 
-                var workbook = XLSX.read(data, {type: 'array', cellDates: false, raw: false});
-                var firstSheetName = workbook.SheetNames[0];
-                var firstSheet = workbook.Sheets[firstSheetName];
+                var workbook = XLSX.read(data, {type: 'array', cellDates: false, raw: false});[span_225](start_span)[span_225](end_span)
+                var firstSheetName = workbook.SheetNames[0];[span_226](start_span)[span_226](end_span)
+                var firstSheet = workbook.Sheets[firstSheetName];[span_227](start_span)[span_227](end_span)
                 
-                var jsonData = XLSX.utils.sheet_to_json(firstSheet, {defval: "", raw: false});
+                var jsonData = XLSX.utils.sheet_to_json(firstSheet, {defval: "", raw: false});[span_228](start_span)[span_228](end_span)
                 
                 if(!jsonData || jsonData.length === 0) {
-                    alert("無法讀取 Excel 數據！");
+                    alert("無法讀取 Excel 數據！");[span_229](start_span)[span_229](end_span)
                     return;
                 }
                 
                 var cleanedData = jsonData.map(function(row) {
-                    var newRow = {};
+                    var newRow = {};[span_230](start_span)[span_230](end_span)
                     for (var key in row) {
                         if (row.hasOwnProperty(key)) {
-                            var cleanKey = key.toString().replace(/\s+/g, ""); 
-                            newRow[cleanKey] = row[key] !== undefined ? row[key].toString().trim() : "";
+                            var cleanKey = key.toString().replace(/\s+/g, "");[span_231](start_span)[span_231](end_span)
+                            newRow[cleanKey] = row[key] !== undefined ? row[key].toString().trim() : "";[span_232](start_span)[span_232](end_span)
                         }
                     }
                     return newRow;
                 });
-                generateLabels(cleanedData);
+                generateLabels(cleanedData);[span_233](start_span)[span_233](end_span)
             } catch (err) { 
-                alert("解析 Excel 出錯: " + err.message); 
+                alert("解析 Excel 出錯: " + err.message);[span_234](start_span)[span_234](end_span)
             }
         };
-        reader.readAsArrayBuffer(files[0]);
+        reader.readAsArrayBuffer(files[0]);[span_235](start_span)[span_235](end_span)
     });
 }
 
 function generateLabels(dataList) {
-    var printZone = document.getElementById('print-zone');
-    printZone.innerHTML = ""; 
-    var htmlContent = "";
-    var totalItems = dataList.length;
-    var validCount = 0;
+    var printZone = document.getElementById('print-zone');[span_236](start_span)[span_236](end_span)
+    printZone.innerHTML = "";[span_237](start_span)[span_237](end_span)
+    var htmlContent = "";[span_238](start_span)[span_238](end_span)
+    var totalItems = dataList.length;[span_239](start_span)[span_239](end_span)
+    var validCount = 0;[span_240](start_span)[span_240](end_span)
 
     for (var i = 0; i < totalItems; i += 10) {
-        var isLastPage = (i + 10 >= totalItems);
-        var pageClass = isLastPage ? "grid-container" : "grid-container page-break";
-        htmlContent += '<div class="' + pageClass + '">';
+        var isLastPage = (i + 10 >= totalItems);[span_241](start_span)[span_241](end_span)
+        var pageClass = isLastPage ? "grid-container" : "grid-container page-break";[span_242](start_span)[span_242](end_span)
+        htmlContent += '<div class="' + pageClass + '">';[span_243](start_span)[span_243](end_span)
         
         for (var j = i; j < i + 10 && j < totalItems; j++) {
-            var item = dataList[j];
+            var item = dataList[j];[span_244](start_span)[span_244](end_span)
             
-            var chang_hieu = item['廠型'] || item['厂型'] || "";
-            var giao_ky   = item['成品交期'] || item['成品交期'] || ""; 
-            var chi_lenh  = item['指令表'] || item['指令表'] || "";
-            var trich_yeu  = item['摘要'] || item['摘要'] || "";
-            var mau_sac   = item['顏色'] || item['颜色'] || "";
-            var so_luong  = item['數量'] || item['数量'] || "";
-            var don_vi    = item['單位'] || item['单位'] || "";
-            var ghi_chu   = item['注'] || item['註'] || ""; 
+            var chang_hieu = item['廠型'] || item['厂型'] || "";[span_245](start_span)[span_245](end_span)
+            var giao_ky   = item['成品交期'] || item['成品交期'] || "";[span_246](start_span)[span_246](end_span)
+            var chi_lenh  = item['指令表'] || item['指令表'] || "";[span_247](start_span)[span_247](end_span)
+            var trich_yeu  = item['摘要'] || item['摘要'] || "";[span_248](start_span)[span_248](end_span)
+            var mau_sac   = item['顏色'] || item['颜色'] || "";[span_249](start_span)[span_249](end_span)
+            var so_luong  = item['數量'] || item['数量'] || "";[span_250](start_span)[span_250](end_span)
+            var don_vi    = item['單位'] || item['单位'] || "";[span_251](start_span)[span_251](end_span)
+            var ghi_chu   = item['注'] || item['註'] || "";[span_252](start_span)[span_252](end_span)
             
-            if(chang_hieu || chi_lenh || so_luong) { validCount++; }
+            if(chang_hieu || chi_lenh || so_luong) { validCount++; }[span_253](start_span)[span_253](end_span)
             
             htmlContent += `
                 <div class="label-box">
@@ -509,18 +516,18 @@ function generateLabels(dataList) {
                         <strong>注:</strong> ${ghi_chu}
                     </div>
                 </div>
-            `;
+            `;[span_254](start_span)[span_254](end_span)
         }
-        htmlContent += '</div>';
+        htmlContent += '</div>';[span_255](start_span)[span_255](end_span)
     }
     
     if(validCount === 0) {
         printZone.innerHTML = `
         <div style="padding: 20px; color: #ef4444; font-weight: bold; font-family: Arial; border: 2px dashed #fca5a5; background: #fef2f2; border-radius: 10px; max-width: 1200px; margin: 0 auto; text-align: center;">
             <p>⚠️ 错误：无法读取匹配 Excel 数据!</p>
-        </div>`;
+        </div>`;[span_256](start_span)[span_256](end_span)
     } else {
-        printZone.innerHTML = htmlContent;
+        printZone.innerHTML = htmlContent;[span_257](start_span)[span_257](end_span)
     }
 }
 </script>
