@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>富裕鞋業有限公司 - 標籤自動列印系統</title>
-<!-- Tích hợp Google Font: Noto Sans TC -->
+<!-- Tích hợp Google Font: Noto Sans TC cho tem -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
+    /* BẢNG ĐIỀU KHIỂN SỬ DỤNG FONT KANGXI DICT FONT / 康熙字典體 */
     .control-panel {
         background: #ffffff;
         padding: 30px;
@@ -15,7 +16,7 @@
         border-radius: 16px;
         margin: 20px auto 40px auto;
         max-width: 1200px;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: 'Kangxi Dict Font', '康熙字典體', serif;
         box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12);
     }
     
@@ -361,7 +362,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function copyTemplateData() {
     var row1 = ["廠型", "成品交期", "指令表", "摘要", "顏色", "數量", "單位", "注"].join("\t");
-    var row2 = ["S93207男-S101617-1022", "2026年2月10日", "PS37331", "SCN-A33", "SHINY BLACK黑0AN", "360", "PCS", "以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责。"].join("\t");
+    var row2 = ["S93207男-S101617-1022", "2026年2月10日", "PS37331", "SCN-A33", "SHINY BLACK黑0AN", "360", "PCS", "以上货品请核对数量,如有数量问题, 三天内通知本公司,逾期恕不负责."].join("\t");
     var templateText = row1 + "\r\n" + row2;
     
     if (navigator.clipboard && navigator.clipboard.writeText) {
