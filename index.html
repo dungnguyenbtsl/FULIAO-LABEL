@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    /* BẢNG ĐIỀU KHIỂN SỬ DỤNG FONT KANGXI DICT FONT / 康熙字典體 */
+    /* BẢNG ĐIỀU KHIỂN SỬ DỤNG FONT KANGXI DICT FONT / 康熙字典體 - Đã cố định vị trí (Sticky) */
     .control-panel {
         background: #ffffff;
         padding: 30px;
@@ -18,6 +18,9 @@
         max-width: 1200px;
         font-family: 'Kangxi Dict Font', '康熙字典體', serif;
         box-shadow: 0 10px 30px rgba(148, 163, 184, 0.12);
+        position: sticky;
+        top: 20px;
+        z-index: 1000;
     }
     
     .panel-header {
@@ -267,7 +270,6 @@
         text-align: center !important;
     }
 
-    /* Đã đồng bộ kích thước chữ phần chú ý (footer-note) bằng với dữ liệu trong con tem (7.5pt) */
     .footer-note {
         font-size: 7.5pt;
         line-height: 1.1;
